@@ -1,20 +1,24 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
-/**
- * yusufu 14.11.2021 .
- */
-public class KLargest {
+public class KLargestArray {
 
-
-    public static int solution(int[] arr, int k) {
+    public static int[] solution(int[] arr, int k) {
         int larges[]  = new int[k];
+
+        //Integer[] obj_array = Arrays.stream( arr ).boxed().toArray( Integer[] :: new);
 
         Arrays.sort(arr);
-        return arr[k];
+        for(int i = 0; i<k;i++) {
+            larges[i] = arr[arr.length-i-1];
+        }
+        return larges;
     }
 
-    public static int solution2(int[] arr, int k) {
+    public static int[] solution2(int[] arr, int k) {
         int larges[]  = new int[k];
+        int larges2[]  = new int[k];
 
         for(int i=0; i<k-1; i++) {
             for(int j= 0; j<arr.length-1; j++) {
@@ -24,7 +28,16 @@ public class KLargest {
             }
         }
 
-        return larges[k];
+        for(int i = 0; i<arr.length-1;i++) {
+            int temp = 0;
+            if(arr[i]> temp) {
+                temp = arr[i];
+            }
+
+            for(int j = 0; j<k-1;j++) {
+            }
+        }
+        return larges;
     }
 
     public static void klargest(int[] arr, int k) {
@@ -67,15 +80,12 @@ public class KLargest {
 
     public static void main(String[] args) {
 
-        int arr[] = new int[] { 1, 23, 12, 9, 30, 2, 50 };
-        int k = 2;
+        Integer arr[] = new Integer[] { 1, 23, 12, 9, 30, 2, 50 };
+        int arr2[] = new int[] { 1, 23, 12, 9, 30, 2, 50 };
+        int arr3[] = new int[] { 1, 23, 12, 9, 30, 2, 50 };
+        int k = 6;
 
-        int result = solution(arr,k);
-        if(result == 30) {
-            System.out.println("match");
-        } else {
-            System.out.println("not match");
-        }
+        solution(arr2,k);
         //solution2(arr2,k);
         //klargest(arr2,k);
         //select2(arr3,k);
